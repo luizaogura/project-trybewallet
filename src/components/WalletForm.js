@@ -16,6 +16,7 @@ class WalletForm extends Component {
     const { dispatch } = this.props;
     const APIresponse = await fetch('https://economia.awesomeapi.com.br/json/all');
     const results = await APIresponse.json();
+    console.log(results);
     const codein = Object.keys(results).filter((p) => p !== 'USDT');
     console.log(codein);
     this.setState({ currencies: codein });
@@ -50,7 +51,7 @@ class WalletForm extends Component {
           <option>Lazer</option>
           <option>Trabalho</option>
           <option>Transporte</option>
-          <option>Transporte</option>
+          <option>Saúde</option>
         </select>
       </div>
     );
@@ -61,4 +62,6 @@ WalletForm.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-export default connect()(WalletForm);
+const mapStateToProps = (state) => ({ currencies: state.wallet.currencies });
+
+export default connect(mapStateToProps)(WalletForm);
