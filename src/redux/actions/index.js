@@ -2,6 +2,7 @@
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 export const CURRENCIES_API = 'CURRENCIES_API';
 export const SUBMIT_EXPENSES = 'SUBMIT_EXPENSES';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 
 export const submitLogin = (email) => ({
   type: SUBMIT_LOGIN,
@@ -16,4 +17,9 @@ export const currenciesAPI = (currencies) => ({
 export const submitExpenses = (expenses) => ({
   type: SUBMIT_EXPENSES,
   payload: expenses,
+});
+
+export const deleteExpense = (id) => ({
+  type: DELETE_EXPENSE,
+  payload: id,
 });
